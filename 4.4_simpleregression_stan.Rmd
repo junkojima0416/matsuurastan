@@ -7,3 +7,37 @@ output: html_notebook
 d <- read.csv(file='stan2/RStanBook-master/chap04/input/data-salary.txt')
 d
 ```
+
+
+```{stan output.var=model45}
+data {
+  int N;
+  real X[N];
+  real Y[N];
+}
+
+parameters {
+  real a;
+  real b;
+  real<lower=0> sigma;
+}
+
+model {
+  for (n in 1:N) {
+    //Y[n]が平均a + b*X[n]・標準偏差sigmaの正規分布から生成されたことを示す
+    Y[n] ~ normal(a + b*X[n], sigma);
+  }
+}
+
+```
+
+```{r}
+library(rstan)
+data <- list(N=nrow(d), X=d$X, Y=d$Y)
+fit <- sampling(model45, data=data, seed=1234)
+```
+
+```{r}
+fit
+```
+

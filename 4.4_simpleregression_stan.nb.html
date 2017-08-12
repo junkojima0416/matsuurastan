@@ -178,16 +178,213 @@ $(document).ready(function () {
 <pre class="r"><code>d &lt;- read.csv(file='stan2/RStanBook-master/chap04/input/data-salary.txt')
 d</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6MjB9LCJyZGYiOiJINHNJQUFBQUFBQUFBMTJRTzA3RU1CQ0dKMDRDMmtnTFNLUkFWTEJJQ0FrMkFyUUZqNEptdVFCVnRqUkpnSWpnckpLc29PUU8zSVJEME5OUmNBRWF1TUhDYis5WVFyYjBlY1pqeitQMzFUZzlqdEtJaUFUNUFYWWZiaUN3ZVJSUVQ5c25Jbi9kUENEcWd4aHNNSnRnQzJ5REhiQUw5cGg5NWdBY2doRTRZVTdCR1RobnVLNzNBVjdBRzlwZGdBRjY0MDU4Z3duOEJLQ3YrSUs5QkRuNHhNQmoyQi9ZZC9BS01xSnc0QWdKbFh3b1dqaHJSZ3lyUzYwemNaNzNtdm94c1NsNlB2Rk1ac1Z1M2F5U3JhMXJnMUV1TzVuY05NakhhZTZrTE5mVHJxd1Zrb1QrMmRCSjlob25zRHBUZXBKOG1OM04xUDN3U0RjdzE0dlZaei8rNTR0RlMvSExwVUl1dFZTbzIxSVZkdlpLWGhjVkgxYWcyQWhPcGsycE9xc0UwVGJwNms3YWQxRldWelppdE5IOER3SU91UGxIQWdBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["X"],"name":[1],"type":["int"],"align":["right"]},{"label":["Y"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"24","2":"472"},{"1":"24","2":"403"},{"1":"26","2":"454"},{"1":"32","2":"575"},{"1":"33","2":"546"},{"1":"35","2":"781"},{"1":"38","2":"750"},{"1":"40","2":"601"},{"1":"40","2":"814"},{"1":"43","2":"792"},{"1":"43","2":"745"},{"1":"44","2":"837"},{"1":"48","2":"868"},{"1":"52","2":"988"},{"1":"56","2":"1092"},{"1":"56","2":"1007"},{"1":"57","2":"1233"},{"1":"58","2":"1202"},{"1":"59","2":"1123"},{"1":"59","2":"1314"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[20]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW4gZmlsZSBpbmNsdWRlZCBmcm9tIGZpbGUxZTc2Y2MwZTEyZi5jcHA6ODpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3NyYy9zdGFuL21vZGVsL21vZGVsX2hlYWRlci5ocHA6NDpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC5ocHA6NDpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC9yZXYvbWF0LmhwcDo0OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoL3Jldi9jb3JlLmhwcDoxMjpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC9yZXYvY29yZS9nZXZ2X3Z2dl92YXJpLmhwcDo1OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoL3Jldi9jb3JlL3Zhci5ocHA6NzpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9CSC9pbmNsdWRlL2Jvb3N0L21hdGgvdG9vbHMvY29uZmlnLmhwcDoxMzpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9CSC9pbmNsdWRlL2Jvb3N0L2NvbmZpZy5ocHA6Mzk6XG4vTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9CSC9pbmNsdWRlL2Jvb3N0L2NvbmZpZy9jb21waWxlci9jbGFuZy5ocHA6MTk2OjExOiB3YXJuaW5nOiAnQk9PU1RfTk9fQ1hYMTFfUlZBTFVFX1JFRkVSRU5DRVMnIG1hY3JvIHJlZGVmaW5lZCBbLVdtYWNyby1yZWRlZmluZWRdXG4jICBkZWZpbmUgQk9PU1RfTk9fQ1hYMTFfUlZBTFVFX1JFRkVSRU5DRVNcbiAgICAgICAgICBeXG48Y29tbWFuZCBsaW5lPjo2Ojk6IG5vdGU6IHByZXZpb3VzIGRlZmluaXRpb24gaXMgaGVyZVxuI2RlZmluZSBCT09TVF9OT19DWFgxMV9SVkFMVUVfUkVGRVJFTkNFUyAxXG4gICAgICAgIF5cbkluIGZpbGUgaW5jbHVkZWQgZnJvbSBmaWxlMWU3NmNjMGUxMmYuY3BwOjg6XG5JbiBmaWxlIGluY2x1ZGVkIGZyb20gL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjQvUmVzb3VyY2VzL2xpYnJhcnkvU3RhbkhlYWRlcnMvaW5jbHVkZS9zcmMvc3Rhbi9tb2RlbC9tb2RlbF9oZWFkZXIuaHBwOjQ6XG5JbiBmaWxlIGluY2x1ZGVkIGZyb20gL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjQvUmVzb3VyY2VzL2xpYnJhcnkvU3RhbkhlYWRlcnMvaW5jbHVkZS9zdGFuL21hdGguaHBwOjQ6XG5JbiBmaWxlIGluY2x1ZGVkIGZyb20gL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjQvUmVzb3VyY2VzL2xpYnJhcnkvU3RhbkhlYWRlcnMvaW5jbHVkZS9zdGFuL21hdGgvcmV2L21hdC5ocHA6NDpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC9yZXYvY29yZS5ocHA6NDI6XG4vTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC9yZXYvY29yZS9zZXRfemVyb19hbGxfYWRqb2ludHMuaHBwOjE0OjE3OiB3YXJuaW5nOiB1bnVzZWQgZnVuY3Rpb24gJ3NldF96ZXJvX2FsbF9hZGpvaW50cycgWy1XdW51c2VkLWZ1bmN0aW9uXVxuICAgIHN0YXRpYyB2b2lkIHNldF96ZXJvX2FsbF9hZGpvaW50cygpIHtcbiAgICAgICAgICAgICAgICBeXG5JbiBmaWxlIGluY2x1ZGVkIGZyb20gZmlsZTFlNzZjYzBlMTJmLmNwcDo4OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3JjL3N0YW4vbW9kZWwvbW9kZWxfaGVhZGVyLmhwcDo0OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoLmhwcDo0OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoL3Jldi9tYXQuaHBwOjQ6XG5JbiBmaWxlIGluY2x1ZGVkIGZyb20gL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjQvUmVzb3VyY2VzL2xpYnJhcnkvU3RhbkhlYWRlcnMvaW5jbHVkZS9zdGFuL21hdGgvcmV2L2NvcmUuaHBwOjQzOlxuL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjQvUmVzb3VyY2VzL2xpYnJhcnkvU3RhbkhlYWRlcnMvaW5jbHVkZS9zdGFuL21hdGgvcmV2L2NvcmUvc2V0X3plcm9fYWxsX2Fkam9pbnRzX25lc3RlZC5ocHA6MTc6MTc6IHdhcm5pbmc6ICdzdGF0aWMnIGZ1bmN0aW9uICdzZXRfemVyb19hbGxfYWRqb2ludHNfbmVzdGVkJyBkZWNsYXJlZCBpbiBoZWFkZXIgZmlsZSBzaG91bGQgYmUgZGVjbGFyZWQgJ3N0YXRpYyBpbmxpbmUnIFstV3VubmVlZGVkLWludGVybmFsLWRlY2xhcmF0aW9uXVxuICAgIHN0YXRpYyB2b2lkIHNldF96ZXJvX2FsbF9hZGpvaW50c19uZXN0ZWQoKSB7XG4gICAgICAgICAgICAgICAgXlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIGZpbGUxZTc2Y2MwZTEyZi5jcHA6ODpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3NyYy9zdGFuL21vZGVsL21vZGVsX2hlYWRlci5ocHA6NDpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC5ocHA6NDpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC9yZXYvbWF0LmhwcDoxMTpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC9wcmltL21hdC5ocHA6NTk6XG4vTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9TdGFuSGVhZGVycy9pbmNsdWRlL3N0YW4vbWF0aC9wcmltL21hdC9mdW4vYXV0b2NvcnJlbGF0aW9uLmhwcDoxNzoxNDogd2FybmluZzogZnVuY3Rpb24gJ2ZmdF9uZXh0X2dvb2Rfc2l6ZScgaXMgbm90IG5lZWRlZCBhbmQgd2lsbCBub3QgYmUgZW1pdHRlZCBbLVd1bm5lZWRlZC1pbnRlcm5hbC1kZWNsYXJhdGlvbl1cbiAgICAgIHNpemVfdCBmZnRfbmV4dF9nb29kX3NpemUoc2l6ZV90IE4pIHtcbiAgICAgICAgICAgICBeXG5JbiBmaWxlIGluY2x1ZGVkIGZyb20gZmlsZTFlNzZjYzBlMTJmLmNwcDo4OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3JjL3N0YW4vbW9kZWwvbW9kZWxfaGVhZGVyLmhwcDo0OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoLmhwcDo0OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoL3Jldi9tYXQuaHBwOjExOlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoL3ByaW0vbWF0LmhwcDoyOTg6XG5JbiBmaWxlIGluY2x1ZGVkIGZyb20gL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjQvUmVzb3VyY2VzL2xpYnJhcnkvU3RhbkhlYWRlcnMvaW5jbHVkZS9zdGFuL21hdGgvcHJpbS9hcnIuaHBwOjM5OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L1N0YW5IZWFkZXJzL2luY2x1ZGUvc3Rhbi9tYXRoL3ByaW0vYXJyL2Z1bmN0b3IvaW50ZWdyYXRlX29kZV9yazQ1LmhwcDoxMzpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9CSC9pbmNsdWRlL2Jvb3N0L251bWVyaWMvb2RlaW50LmhwcDo2MTpcbkluIGZpbGUgaW5jbHVkZWQgZnJvbSAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9CSC9pbmNsdWRlL2Jvb3N0L251bWVyaWMvb2RlaW50L3V0aWwvbXVsdGlfYXJyYXlfYWRhcHRpb24uaHBwOjI5OlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L0JIL2luY2x1ZGUvYm9vc3QvbXVsdGlfYXJyYXkuaHBwOjIxOlxuSW4gZmlsZSBpbmNsdWRlZCBmcm9tIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L0JIL2luY2x1ZGUvYm9vc3QvbXVsdGlfYXJyYXkvYmFzZS5ocHA6Mjg6XG4vTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9CSC9pbmNsdWRlL2Jvb3N0L211bHRpX2FycmF5L2NvbmNlcHRfY2hlY2tzLmhwcDo0Mjo0Mzogd2FybmluZzogdW51c2VkIHR5cGVkZWYgJ2luZGV4X3JhbmdlJyBbLVd1bnVzZWQtbG9jYWwtdHlwZWRlZl1cbiAgICAgIHR5cGVkZWYgdHlwZW5hbWUgQXJyYXk6OmluZGV4X3JhbmdlIGluZGV4X3JhbmdlO1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXlxuL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy8zLjQvUmVzb3VyY2VzL2xpYnJhcnkvQkgvaW5jbHVkZS9ib29zdC9tdWx0aV9hcnJheS9jb25jZXB0X2NoZWNrcy5ocHA6NDM6Mzc6IHdhcm5pbmc6IHVudXNlZCB0eXBlZGVmICdpbmRleCcgWy1XdW51c2VkLWxvY2FsLXR5cGVkZWZdXG4gICAgICB0eXBlZGVmIHR5cGVuYW1lIEFycmF5OjppbmRleCBpbmRleDtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5cbi9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvMy40L1Jlc291cmNlcy9saWJyYXJ5L0JIL2luY2x1ZGUvYm9vc3QvbXVsdGlfYXJyYXkvY29uY2VwdF9jaGVja3MuaHBwOjUzOjQzOiB3YXJuaW5nOiB1bnVzZWQgdHlwZWRlZiAnaW5kZXhfcmFuZ2UnIFstV3VudXNlZC1sb2NhbC10eXBlZGVmXVxuICAgICAgdHlwZWRlZiB0eXBlbmFtZSBBcnJheTo6aW5kZXhfcmFuZ2UgaW5kZXhfcmFuZ2U7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeXG4vTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzMuNC9SZXNvdXJjZXMvbGlicmFyeS9CSC9pbmNsdWRlL2Jvb3N0L211bHRpX2FycmF5L2NvbmNlcHRfY2hlY2tzLmhwcDo1NDozNzogd2FybmluZzogdW51c2VkIHR5cGVkZWYgJ2luZGV4JyBbLVd1bnVzZWQtbG9jYWwtdHlwZWRlZl1cbiAgICAgIHR5cGVkZWYgdHlwZW5hbWUgQXJyYXk6OmluZGV4IGluZGV4O1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXlxuOCB3YXJuaW5ncyBnZW5lcmF0ZWQuXG4ifQ== -->
+<pre><code>In file included from file1e76cc0e12f.cpp:8:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:12:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/core/gevv_vvv_vari.hpp:5:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/core/var.hpp:7:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/math/tools/config.hpp:13:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/config.hpp:39:
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/config/compiler/clang.hpp:196:11: warning: 'BOOST_NO_CXX11_RVALUE_REFERENCES' macro redefined [-Wmacro-redefined]
+#  define BOOST_NO_CXX11_RVALUE_REFERENCES
+          ^
+&lt;command line&gt;:6:9: note: previous definition is here
+#define BOOST_NO_CXX11_RVALUE_REFERENCES 1
+        ^
+In file included from file1e76cc0e12f.cpp:8:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:42:
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp:14:17: warning: unused function 'set_zero_all_adjoints' [-Wunused-function]
+    static void set_zero_all_adjoints() {
+                ^
+In file included from file1e76cc0e12f.cpp:8:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:43:
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints_nested.hpp:17:17: warning: 'static' function 'set_zero_all_adjoints_nested' declared in header file should be declared 'static inline' [-Wunneeded-internal-declaration]
+    static void set_zero_all_adjoints_nested() {
+                ^
+In file included from file1e76cc0e12f.cpp:8:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:11:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:59:
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/autocorrelation.hpp:17:14: warning: function 'fft_next_good_size' is not needed and will not be emitted [-Wunneeded-internal-declaration]
+      size_t fft_next_good_size(size_t N) {
+             ^
+In file included from file1e76cc0e12f.cpp:8:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math.hpp:4:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:11:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:298:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/prim/arr.hpp:39:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/StanHeaders/include/stan/math/prim/arr/functor/integrate_ode_rk45.hpp:13:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/numeric/odeint.hpp:61:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/numeric/odeint/util/multi_array_adaption.hpp:29:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/multi_array.hpp:21:
+In file included from /Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/multi_array/base.hpp:28:
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/multi_array/concept_checks.hpp:42:43: warning: unused typedef 'index_range' [-Wunused-local-typedef]
+      typedef typename Array::index_range index_range;
+                                          ^
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/multi_array/concept_checks.hpp:43:37: warning: unused typedef 'index' [-Wunused-local-typedef]
+      typedef typename Array::index index;
+                                    ^
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/multi_array/concept_checks.hpp:53:43: warning: unused typedef 'index_range' [-Wunused-local-typedef]
+      typedef typename Array::index_range index_range;
+                                          ^
+/Library/Frameworks/R.framework/Versions/3.4/Resources/library/BH/include/boost/multi_array/concept_checks.hpp:54:37: warning: unused typedef 'index' [-Wunused-local-typedef]
+      typedef typename Array::index index;
+                                    ^
+8 warnings generated.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyc3RhbilcbmRhdGEgPC0gbGlzdChOPW5yb3coZCksIFg9ZCRYLCBZPWQkWSlcbmZpdCA8LSBzYW1wbGluZyhtb2RlbDQ1LCBkYXRhPWRhdGEsIHNlZWQ9MTIzNClcbmBgYCJ9 -->
+<pre class="r"><code>library(rstan)
+data &lt;- list(N=nrow(d), X=d$X, Y=d$Y)
+fit &lt;- sampling(model45, data=data, seed=1234)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5TQU1QTElORyBGT1IgTU9ERUwgJ3N0YW4tMWU3YTlhYWFhNCcgTk9XIChDSEFJTiAxKS5cblxuR3JhZGllbnQgZXZhbHVhdGlvbiB0b29rIDEuMWUtMDUgc2Vjb25kc1xuMTAwMCB0cmFuc2l0aW9ucyB1c2luZyAxMCBsZWFwZnJvZyBzdGVwcyBwZXIgdHJhbnNpdGlvbiB3b3VsZCB0YWtlIDAuMTEgc2Vjb25kcy5cbkFkanVzdCB5b3VyIGV4cGVjdGF0aW9ucyBhY2NvcmRpbmdseSFcblxuXG5JdGVyYXRpb246ICAgIDEgLyAyMDAwIFsgIDAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogIDIwMCAvIDIwMDAgWyAxMCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAgNDAwIC8gMjAwMCBbIDIwJV0gIChXYXJtdXApXG5JdGVyYXRpb246ICA2MDAgLyAyMDAwIFsgMzAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogIDgwMCAvIDIwMDAgWyA0MCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAxMDAwIC8gMjAwMCBbIDUwJV0gIChXYXJtdXApXG5JdGVyYXRpb246IDEwMDEgLyAyMDAwIFsgNTAlXSAgKFNhbXBsaW5nKVxuSXRlcmF0aW9uOiAxMjAwIC8gMjAwMCBbIDYwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMTQwMCAvIDIwMDAgWyA3MCVdICAoU2FtcGxpbmcpXG5JdGVyYXRpb246IDE2MDAgLyAyMDAwIFsgODAlXSAgKFNhbXBsaW5nKVxuSXRlcmF0aW9uOiAxODAwIC8gMjAwMCBbIDkwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMjAwMCAvIDIwMDAgWzEwMCVdICAoU2FtcGxpbmcpXG5cbiBFbGFwc2VkIFRpbWU6IDAuMTY3NDQgc2Vjb25kcyAoV2FybS11cClcbiAgICAgICAgICAgICAgIDAuMDkyNTI4IHNlY29uZHMgKFNhbXBsaW5nKVxuICAgICAgICAgICAgICAgMC4yNTk5Njggc2Vjb25kcyAoVG90YWwpXG5cblxuU0FNUExJTkcgRk9SIE1PREVMICdzdGFuLTFlN2E5YWFhYTQnIE5PVyAoQ0hBSU4gMikuXG5cbkdyYWRpZW50IGV2YWx1YXRpb24gdG9vayAxLjNlLTA1IHNlY29uZHNcbjEwMDAgdHJhbnNpdGlvbnMgdXNpbmcgMTAgbGVhcGZyb2cgc3RlcHMgcGVyIHRyYW5zaXRpb24gd291bGQgdGFrZSAwLjEzIHNlY29uZHMuXG5BZGp1c3QgeW91ciBleHBlY3RhdGlvbnMgYWNjb3JkaW5nbHkhXG5cblxuSXRlcmF0aW9uOiAgICAxIC8gMjAwMCBbICAwJV0gIChXYXJtdXApXG5JdGVyYXRpb246ICAyMDAgLyAyMDAwIFsgMTAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogIDQwMCAvIDIwMDAgWyAyMCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAgNjAwIC8gMjAwMCBbIDMwJV0gIChXYXJtdXApXG5JdGVyYXRpb246ICA4MDAgLyAyMDAwIFsgNDAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogMTAwMCAvIDIwMDAgWyA1MCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAxMDAxIC8gMjAwMCBbIDUwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMTIwMCAvIDIwMDAgWyA2MCVdICAoU2FtcGxpbmcpXG5JdGVyYXRpb246IDE0MDAgLyAyMDAwIFsgNzAlXSAgKFNhbXBsaW5nKVxuSXRlcmF0aW9uOiAxNjAwIC8gMjAwMCBbIDgwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMTgwMCAvIDIwMDAgWyA5MCVdICAoU2FtcGxpbmcpXG5JdGVyYXRpb246IDIwMDAgLyAyMDAwIFsxMDAlXSAgKFNhbXBsaW5nKVxuXG4gRWxhcHNlZCBUaW1lOiAwLjE2MDE3MSBzZWNvbmRzIChXYXJtLXVwKVxuICAgICAgICAgICAgICAgMC4wODk3NDIgc2Vjb25kcyAoU2FtcGxpbmcpXG4gICAgICAgICAgICAgICAwLjI0OTkxMyBzZWNvbmRzIChUb3RhbClcblxuXG5TQU1QTElORyBGT1IgTU9ERUwgJ3N0YW4tMWU3YTlhYWFhNCcgTk9XIChDSEFJTiAzKS5cblxuR3JhZGllbnQgZXZhbHVhdGlvbiB0b29rIDhlLTA2IHNlY29uZHNcbjEwMDAgdHJhbnNpdGlvbnMgdXNpbmcgMTAgbGVhcGZyb2cgc3RlcHMgcGVyIHRyYW5zaXRpb24gd291bGQgdGFrZSAwLjA4IHNlY29uZHMuXG5BZGp1c3QgeW91ciBleHBlY3RhdGlvbnMgYWNjb3JkaW5nbHkhXG5cblxuSXRlcmF0aW9uOiAgICAxIC8gMjAwMCBbICAwJV0gIChXYXJtdXApXG5JdGVyYXRpb246ICAyMDAgLyAyMDAwIFsgMTAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogIDQwMCAvIDIwMDAgWyAyMCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAgNjAwIC8gMjAwMCBbIDMwJV0gIChXYXJtdXApXG5JdGVyYXRpb246ICA4MDAgLyAyMDAwIFsgNDAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogMTAwMCAvIDIwMDAgWyA1MCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAxMDAxIC8gMjAwMCBbIDUwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMTIwMCAvIDIwMDAgWyA2MCVdICAoU2FtcGxpbmcpXG5JdGVyYXRpb246IDE0MDAgLyAyMDAwIFsgNzAlXSAgKFNhbXBsaW5nKVxuSXRlcmF0aW9uOiAxNjAwIC8gMjAwMCBbIDgwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMTgwMCAvIDIwMDAgWyA5MCVdICAoU2FtcGxpbmcpXG5JdGVyYXRpb246IDIwMDAgLyAyMDAwIFsxMDAlXSAgKFNhbXBsaW5nKVxuXG4gRWxhcHNlZCBUaW1lOiAwLjE2NjkxNyBzZWNvbmRzIChXYXJtLXVwKVxuICAgICAgICAgICAgICAgMC4xMTY3NjIgc2Vjb25kcyAoU2FtcGxpbmcpXG4gICAgICAgICAgICAgICAwLjI4MzY3OSBzZWNvbmRzIChUb3RhbClcblxuXG5TQU1QTElORyBGT1IgTU9ERUwgJ3N0YW4tMWU3YTlhYWFhNCcgTk9XIChDSEFJTiA0KS5cblxuR3JhZGllbnQgZXZhbHVhdGlvbiB0b29rIDEuNWUtMDUgc2Vjb25kc1xuMTAwMCB0cmFuc2l0aW9ucyB1c2luZyAxMCBsZWFwZnJvZyBzdGVwcyBwZXIgdHJhbnNpdGlvbiB3b3VsZCB0YWtlIDAuMTUgc2Vjb25kcy5cbkFkanVzdCB5b3VyIGV4cGVjdGF0aW9ucyBhY2NvcmRpbmdseSFcblxuXG5JdGVyYXRpb246ICAgIDEgLyAyMDAwIFsgIDAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogIDIwMCAvIDIwMDAgWyAxMCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAgNDAwIC8gMjAwMCBbIDIwJV0gIChXYXJtdXApXG5JdGVyYXRpb246ICA2MDAgLyAyMDAwIFsgMzAlXSAgKFdhcm11cClcbkl0ZXJhdGlvbjogIDgwMCAvIDIwMDAgWyA0MCVdICAoV2FybXVwKVxuSXRlcmF0aW9uOiAxMDAwIC8gMjAwMCBbIDUwJV0gIChXYXJtdXApXG5JdGVyYXRpb246IDEwMDEgLyAyMDAwIFsgNTAlXSAgKFNhbXBsaW5nKVxuSXRlcmF0aW9uOiAxMjAwIC8gMjAwMCBbIDYwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMTQwMCAvIDIwMDAgWyA3MCVdICAoU2FtcGxpbmcpXG5JdGVyYXRpb246IDE2MDAgLyAyMDAwIFsgODAlXSAgKFNhbXBsaW5nKVxuSXRlcmF0aW9uOiAxODAwIC8gMjAwMCBbIDkwJV0gIChTYW1wbGluZylcbkl0ZXJhdGlvbjogMjAwMCAvIDIwMDAgWzEwMCVdICAoU2FtcGxpbmcpXG5cbiBFbGFwc2VkIFRpbWU6IDAuMTYzMyBzZWNvbmRzIChXYXJtLXVwKVxuICAgICAgICAgICAgICAgMC4xMDM5NTYgc2Vjb25kcyAoU2FtcGxpbmcpXG4gICAgICAgICAgICAgICAwLjI2NzI1NiBzZWNvbmRzIChUb3RhbClcbiJ9 -->
+<pre><code>
+SAMPLING FOR MODEL 'stan-1e7a9aaaa4' NOW (CHAIN 1).
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiNC405Y2Y5Zue5biwX1N0YW4iCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQpkIDwtIHJlYWQuY3N2KGZpbGU9J3N0YW4yL1JTdGFuQm9vay1tYXN0ZXIvY2hhcDA0L2lucHV0L2RhdGEtc2FsYXJ5LnR4dCcpCmQKYGBg</div>
+Gradient evaluation took 1.1e-05 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0.11 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Warmup)
+Iteration:  200 / 2000 [ 10%]  (Warmup)
+Iteration:  400 / 2000 [ 20%]  (Warmup)
+Iteration:  600 / 2000 [ 30%]  (Warmup)
+Iteration:  800 / 2000 [ 40%]  (Warmup)
+Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0.16744 seconds (Warm-up)
+               0.092528 seconds (Sampling)
+               0.259968 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan-1e7a9aaaa4' NOW (CHAIN 2).
+
+Gradient evaluation took 1.3e-05 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0.13 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Warmup)
+Iteration:  200 / 2000 [ 10%]  (Warmup)
+Iteration:  400 / 2000 [ 20%]  (Warmup)
+Iteration:  600 / 2000 [ 30%]  (Warmup)
+Iteration:  800 / 2000 [ 40%]  (Warmup)
+Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0.160171 seconds (Warm-up)
+               0.089742 seconds (Sampling)
+               0.249913 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan-1e7a9aaaa4' NOW (CHAIN 3).
+
+Gradient evaluation took 8e-06 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0.08 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Warmup)
+Iteration:  200 / 2000 [ 10%]  (Warmup)
+Iteration:  400 / 2000 [ 20%]  (Warmup)
+Iteration:  600 / 2000 [ 30%]  (Warmup)
+Iteration:  800 / 2000 [ 40%]  (Warmup)
+Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0.166917 seconds (Warm-up)
+               0.116762 seconds (Sampling)
+               0.283679 seconds (Total)
+
+
+SAMPLING FOR MODEL 'stan-1e7a9aaaa4' NOW (CHAIN 4).
+
+Gradient evaluation took 1.5e-05 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0.15 seconds.
+Adjust your expectations accordingly!
+
+
+Iteration:    1 / 2000 [  0%]  (Warmup)
+Iteration:  200 / 2000 [ 10%]  (Warmup)
+Iteration:  400 / 2000 [ 20%]  (Warmup)
+Iteration:  600 / 2000 [ 30%]  (Warmup)
+Iteration:  800 / 2000 [ 40%]  (Warmup)
+Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Iteration: 2000 / 2000 [100%]  (Sampling)
+
+ Elapsed Time: 0.1633 seconds (Warm-up)
+               0.103956 seconds (Sampling)
+               0.267256 seconds (Total)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZml0XG5gYGAifQ== -->
+<pre class="r"><code>fit</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW5mZXJlbmNlIGZvciBTdGFuIG1vZGVsOiBzdGFuLTFlN2E5YWFhYTQuXG40IGNoYWlucywgZWFjaCB3aXRoIGl0ZXI9MjAwMDsgd2FybXVwPTEwMDA7IHRoaW49MTsgXG5wb3N0LXdhcm11cCBkcmF3cyBwZXIgY2hhaW49MTAwMCwgdG90YWwgcG9zdC13YXJtdXAgZHJhd3M9NDAwMC5cblxuICAgICAgICAgbWVhbiBzZV9tZWFuICAgIHNkICAgIDIuNSUgICAgIDI1JSAgICAgNTAlICAgIDc1JSAgOTcuNSUgbl9lZmYgUmhhdFxuYSAgICAgLTEyMy4xMiAgICAyLjIzIDc1LjUzIC0yNzguMTggLTE2OS42NyAtMTIyLjkwIC03NC4xNiAgMjEuODIgIDExNDIgICAgMVxuYiAgICAgICAyMS45NyAgICAwLjA1ICAxLjY4ICAgMTguNzAgICAyMC44OSAgIDIxLjk2ICAyMy4wNCAgMjUuMzkgIDExNTkgICAgMVxuc2lnbWEgICA4NC45NCAgICAwLjQwIDE1Ljc5ICAgNjAuNjUgICA3My42MyAgIDgyLjkyICA5My4zOSAxMjIuNjEgIDE1ODAgICAgMVxubHBfXyAgIC05My42OSAgICAwLjA0ICAxLjMzICAtOTcuMTEgIC05NC4zMCAgLTkzLjM1IC05Mi43MCAtOTIuMTUgIDEyMTcgICAgMVxuXG5TYW1wbGVzIHdlcmUgZHJhd24gdXNpbmcgTlVUUyhkaWFnX2UpIGF0IFNhdCBBdWcgMTIgMTY6NTA6MTAgMjAxNy5cbkZvciBlYWNoIHBhcmFtZXRlciwgbl9lZmYgaXMgYSBjcnVkZSBtZWFzdXJlIG9mIGVmZmVjdGl2ZSBzYW1wbGUgc2l6ZSxcbmFuZCBSaGF0IGlzIHRoZSBwb3RlbnRpYWwgc2NhbGUgcmVkdWN0aW9uIGZhY3RvciBvbiBzcGxpdCBjaGFpbnMgKGF0IFxuY29udmVyZ2VuY2UsIFJoYXQ9MSkuXG4ifQ== -->
+<pre><code>Inference for Stan model: stan-1e7a9aaaa4.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+         mean se_mean    sd    2.5%     25%     50%    75%  97.5% n_eff Rhat
+a     -123.12    2.23 75.53 -278.18 -169.67 -122.90 -74.16  21.82  1142    1
+b       21.97    0.05  1.68   18.70   20.89   21.96  23.04  25.39  1159    1
+sigma   84.94    0.40 15.79   60.65   73.63   82.92  93.39 122.61  1580    1
+lp__   -93.69    0.04  1.33  -97.11  -94.30  -93.35 -92.70 -92.15  1217    1
+
+Samples were drawn using NUTS(diag_e) at Sat Aug 12 16:50:10 2017.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiNC405Y2Y5Zue5biwX1N0YW4iCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQpkIDwtIHJlYWQuY3N2KGZpbGU9J3N0YW4yL1JTdGFuQm9vay1tYXN0ZXIvY2hhcDA0L2lucHV0L2RhdGEtc2FsYXJ5LnR4dCcpCmQKYGBgCgoKYGBge3N0YW4gb3V0cHV0LnZhcj1tb2RlbDQ1fQpkYXRhIHsKICBpbnQgTjsKICByZWFsIFhbTl07CiAgcmVhbCBZW05dOwp9CgpwYXJhbWV0ZXJzIHsKICByZWFsIGE7CiAgcmVhbCBiOwogIHJlYWw8bG93ZXI9MD4gc2lnbWE7Cn0KCm1vZGVsIHsKICBmb3IgKG4gaW4gMTpOKSB7CiAgICAvL1lbbl3jgYzlubPlnYdhICsgYipYW25d44O75qiZ5rqW5YGP5beuc2lnbWHjga7mraPopo/liIbluIPjgYvjgonnlJ/miJDjgZXjgozjgZ/jgZPjgajjgpLnpLrjgZkKICAgIFlbbl0gfiBub3JtYWwoYSArIGIqWFtuXSwgc2lnbWEpOwogIH0KfQoKYGBgCgpgYGB7cn0KbGlicmFyeShyc3RhbikKZGF0YSA8LSBsaXN0KE49bnJvdyhkKSwgWD1kJFgsIFk9ZCRZKQpmaXQgPC0gc2FtcGxpbmcobW9kZWw0NSwgZGF0YT1kYXRhLCBzZWVkPTEyMzQpCmBgYAoKYGBge3J9CmZpdApgYGAKCg==</div>
 
 
 
