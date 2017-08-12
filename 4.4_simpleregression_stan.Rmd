@@ -172,3 +172,92 @@ p <- customize.ggplot.axis(p)
 p
 ```
 
+```{stan output.var=model44}
+
+data {
+  int N;
+  real X[N];
+  real Y[N];
+  int N_new;
+  real X_new[N_new];
+}
+
+parameters {
+  real a;
+  real b;
+  real<lower=0> sigma;
+}
+
+transformed parameters {
+  real y_base[N];
+  for (n in 1:N)
+    y_base[n] = a + b*X[n];
+}
+
+model {
+  for (n in 1:N)
+    Y[n] ~ normal(y_base[n], sigma);
+}
+
+generated quantities {
+  real y_base_new[N_new];
+  real y_new[N_new];
+  for (n in 1:N_new) {
+    y_base_new[n] = a + b*X_new[n];
+    y_new[n] = normal_rng(y_base_new[n], sigma);
+  }
+}
+```
+
+```{r}
+library(rstan)
+library(ggplot2)
+
+d <- read.csv(file='/Users/kojimajun/stan2/input/data-salary.txt')
+X_new <- 23:60
+data <- list(N=nrow(d), X=d$X, Y=d$Y, N_new=length(X_new), X_new=X_new)
+fit <- sampling(model44, data=data, seed=1234)
+ms <- rstan::extract(fit)
+```
+
+```{r}
+data.frame.quantile.mcmc <- function(x, y_mcmc, probs=c(2.5, 25, 50, 75, 97.5)/100){
+  #apply(X, MARGIN, 関数, ...):配列などのXのMARGIN(1=行,2=列,c(1,2)=全体)
+  qua <- apply(y_mcmc, 2, quantile, probs=probs)
+  #t():行列入れ替え
+  d <- data.frame(X=x, t(qua))
+  colnames(d) <- c('X', paste0('p', probs*100))
+  return(d)
+}
+
+ggplot.5quantile <- function(data) {
+  p <- ggplot(data=data, aes(x=X, y=p50))
+  p <- p + geom_ribbon(aes(ymin=p2.5, ymax=p97.5), alpha=1/6)
+  p <- p + geom_ribbon(aes(ymin=p25, ymax=p75), alpha=2/6)
+  p <- p + geom_line(size=1)
+  return(p)
+}
+
+customize.ggplot.axis <- function(p) {
+  p <- p + labs(x='X', y='Y')
+  p <- p + scale_y_continuous(breaks=seq(from=200, to=1400, by=400))
+  p <- p + coord_cartesian(xlim=c(22, 61), ylim=c(200, 1400))
+  return(p)
+}
+
+d_est <- data.frame.quantile.mcmc(x=X_new, y_mcmc=ms$y_base_new)
+p <- ggplot.5quantile(data=d_est)
+p <- p + geom_point(data=d, aes(x=X, y=Y), shape=1, size=3)
+p <- customize.ggplot.axis(p)
+p
+```
+
+
+```{r}
+d_est <- data.frame.quantile.mcmc(x=X_new, y_mcmc=ms$y_new)
+p <- ggplot.5quantile(data=d_est)
+p <- p + geom_point(data=d, aes(x=X, y=Y), shape=1, size=3)
+p <- customize.ggplot.axis(p)
+p
+```
+
