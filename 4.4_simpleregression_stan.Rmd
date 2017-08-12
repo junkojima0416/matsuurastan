@@ -1,0 +1,9 @@
+---
+title: "4.4単回帰_Stan"
+output: html_notebook
+---
+
+```{r}
+d <- read.csv(file='stan2/RStanBook-master/chap04/input/data-salary.txt')
+d
+```

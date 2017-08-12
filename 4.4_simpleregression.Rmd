@@ -17,6 +17,7 @@ res_lm <- lm(Y ~ X, data=d)
 
 ```{r}
 res_lm
+plot(res_lm)
 ```
 
 年齢が一つ増えるごとに、年収が21.9万円ほど上がると解釈できる。
@@ -24,8 +25,61 @@ res_lm
 ```{r}
 #予想年齢の指定
 X_new <- data.frame(X=23:60)
-#
+#lm:linerregression(線形回帰)
 conf_95 <- predict(res_lm, X_new, interval='confidence', level=0.95)
+conf_95 <- data.frame(X_new, conf_95)
+conf_50 <- predict(res_lm, X_new, interval='confidence', level=0.50)
+conf_50 <- data.frame(X_new, conf_50)
 pred_95 <- predict(res_lm, X_new, interval='prediction', level=0.95)
+pred_95 <- data.frame(X_new, pred_95)
+pred_50 <- predict(res_lm, X_new, interval='prediction', level=0.50)
+pred_50 <- data.frame(X_new, pred_50)
+```
+
+関数機能
+
+AIC(obj)：AIC（赤池情報量規準）を求める．
+anova(obj1 , obj2)：モデルを比較して分散分析表を生成する．
+coefficients(obj)：回帰係数 (行列) を抽出．coef(obj) と省略できる．
+deviance(obj)：重みつけられた残差平方和．
+formula(obj)：モデル式を抽出．
+logLik(obj)：対数尤度を求める．
+plot(obj)：残差，当てはめ値などの 4 種類のプロットを生成．
+predict(obj, newdata=data.frame)：提供されるデータフレームが元のものと同じラベルを持つことを強制する．
+値は data.frame 中の非ランダムな変量に対する予測値のベクトルまたは行列となる．
+print(obj)：オブジェクトの簡略版を表示．
+residuals(obj)：適当に重みつけられた残差 (の行列) を抽出する．
+resid(obj) と省略できる．df.residuals(obj) も参照されたい．
+step(obj)階層を保ちながら，項を加えたり減らしたりして適当なモデルを選ぶ．
+この探索で見つかった最大の AIC (赤池情報量規準)  を持つモデルが返される．
+summary(obj)：回帰分析の完全な要約が表示される．
+
+```{r}
+conf_95
+```
+
+
+```{r}
+library(ggplot2)
+p <- ggplot()
+#lwr:95%信頼区間の下限。lmのpredictで生成される。
+#upr:同じ
+p <- p + geom_ribbon(data=conf_95, aes(x=X, ymin=lwr, ymax=upr), alpha=1/6)
+p <- p + geom_ribbon(data=conf_50, aes(x=X, ymin=lwr, ymax=upr), alpha=2/6)
+p <- p + geom_line(data=conf_50, aes(x=X, y=fit), size=1)
+p <- p + geom_point(data=d, aes(x=X, y=Y), shape=1, size=3)
+p <- p + labs(x='X', y='Y') + coord_cartesian(xlim=c(22, 61), ylim=c(200, 1400))
+#p <- p + scale_y_continuous(breaks=seq(from=200, to=1400, by=400))
+p
+```
+
+```{r}
+p <- ggplot()
+p <- p + geom_ribbon(data=pred_95, aes(x=X, ymin=lwr, ymax=upr), alpha=1/6)
+p <- p + geom_ribbon(data=pred_50, aes(x=X, ymin=lwr, ymax=upr), alpha=2/6)
+p <- p + geom_line(data=pred_50, aes(x=X, y=fit), size=1)
+p <- p + geom_point(data=d, aes(x=X, y=Y), shape=1, size=3)
+p <- p + labs(x='X', y='Y') + coord_cartesian(xlim=c(22,61), ylim=c(200, 1400))
+p
 ```
 
