@@ -1,0 +1,31 @@
+---
+title: "4.4単回帰"
+output: html_notebook
+---
+
+```{r}
+d <- read.csv(file='stan2/RStanBook-master/chap04/input/data-salary.txt')
+d
+```
+
+
+
+```{r}
+res_lm <- lm(Y ~ X, data=d)
+```
+
+
+```{r}
+res_lm
+```
+
+年齢が一つ増えるごとに、年収が21.9万円ほど上がると解釈できる。
+
+```{r}
+#予想年齢の指定
+X_new <- data.frame(X=23:60)
+#
+conf_95 <- predict(res_lm, X_new, interval='confidence', level=0.95)
+pred_95 <- predict(res_lm, X_new, interval='prediction', level=0.95)
+```
+
