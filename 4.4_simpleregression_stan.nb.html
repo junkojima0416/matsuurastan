@@ -382,9 +382,42 @@ convergence, Rhat=1).</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>年齢が一つ増えるごとに、基本年収が平均で21.97万円上がると解釈できる。</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnZ21jbWMpXG5nZ21jbWMoZ2dzKGZpdCwgaW5jX3dhcm11cD1UUlVFLCBzdGFuX2luY2x1ZGVfYXV4aWxpYXI9VFJVRSksIGZpbGU9Jy9Vc2Vycy9rb2ppbWFqdW4vbWF0c3V1cmFzdGFuL21vZGVsNC01X2ZpdC10cmFjZXBsb3QucGRmJywgcGxvdD0ndHJhY2VwbG90JylcbmBgYCJ9 -->
+<pre class="r"><code>library(ggmcmc)
+ggmcmc(ggs(fit, inc_warmup=TRUE, stan_include_auxiliar=TRUE), file='/Users/kojimajun/matsuurastan/model4-5_fit-traceplot.pdf', plot='traceplot')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGxvdHRpbmcgdHJhY2VwbG90c1xuVGltZSB0YWtlbiB0byBnZW5lcmF0ZSB0aGUgcmVwb3J0OiAxLjEgc2Vjb25kcy5cbiJ9 -->
+<pre><code>Plotting traceplots
+Time taken to generate the report: 1.1 seconds.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dtY21jKGdncyhmaXQpLCBmaWxlPScvVXNlcnMva29qaW1hanVuL21hdHN1dXJhc3Rhbi9tb2RlbDQtNV9maXQtZ2dtY21jLnBkZicpXG5gYGAifQ== -->
+<pre class="r"><code>ggmcmc(ggs(fit), file='/Users/kojimajun/matsuurastan/model4-5_fit-ggmcmc.pdf')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGxvdHRpbmcgaGlzdG9ncmFtc1xuUGxvdHRpbmcgZGVuc2l0eSBwbG90c1xuUGxvdHRpbmcgdHJhY2VwbG90c1xuUGxvdHRpbmcgcnVubmluZyBtZWFuc1xuUGxvdHRpbmcgY29tcGFyaXNvbiBvZiBwYXJ0aWFsIGFuZCBmdWxsIGNoYWluXG5QbG90dGluZyBhdXRvY29ycmVsYXRpb24gcGxvdHNcblBsb3R0aW5nIGNyb3NzY29ycmVsYXRpb24gcGxvdFxuUGxvdHRpbmcgUG90ZW50aWFsIFNjYWxlIFJlZHVjdGlvbiBGYWN0b3JzXG5QbG90dGluZyBHZXdla2UgRGlhZ25vc3RpY1xuUGxvdHRpbmcgY2F0ZXJwaWxsYXIgcGxvdFxuVGltZSB0YWtlbiB0byBnZW5lcmF0ZSB0aGUgcmVwb3J0OiA2IHNlY29uZHMuXG4ifQ== -->
+<pre><code>Plotting histograms
+Plotting density plots
+Plotting traceplots
+Plotting running means
+Plotting comparison of partial and full chain
+Plotting autocorrelation plots
+Plotting crosscorrelation plot
+Plotting Potential Scale Reduction Factors
+Plotting Geweke Diagnostic
+Plotting caterpillar plot
+Time taken to generate the report: 6 seconds.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiNC405Y2Y5Zue5biwX1N0YW4iCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQpkIDwtIHJlYWQuY3N2KGZpbGU9J3N0YW4yL1JTdGFuQm9vay1tYXN0ZXIvY2hhcDA0L2lucHV0L2RhdGEtc2FsYXJ5LnR4dCcpCmQKYGBgCgoKYGBge3N0YW4gb3V0cHV0LnZhcj1tb2RlbDQ1fQpkYXRhIHsKICBpbnQgTjsKICByZWFsIFhbTl07CiAgcmVhbCBZW05dOwp9CgpwYXJhbWV0ZXJzIHsKICByZWFsIGE7CiAgcmVhbCBiOwogIHJlYWw8bG93ZXI9MD4gc2lnbWE7Cn0KCm1vZGVsIHsKICBmb3IgKG4gaW4gMTpOKSB7CiAgICAvL1lbbl3jgYzlubPlnYdhICsgYipYW25d44O75qiZ5rqW5YGP5beuc2lnbWHjga7mraPopo/liIbluIPjgYvjgonnlJ/miJDjgZXjgozjgZ/jgZPjgajjgpLnpLrjgZkKICAgIFlbbl0gfiBub3JtYWwoYSArIGIqWFtuXSwgc2lnbWEpOwogIH0KfQoKYGBgCgpgYGB7cn0KbGlicmFyeShyc3RhbikKZGF0YSA8LSBsaXN0KE49bnJvdyhkKSwgWD1kJFgsIFk9ZCRZKQpmaXQgPC0gc2FtcGxpbmcobW9kZWw0NSwgZGF0YT1kYXRhLCBzZWVkPTEyMzQpCmBgYAoKYGBge3J9CmZpdApgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiNC405Y2Y5Zue5biwX1N0YW4iCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQpkIDwtIHJlYWQuY3N2KGZpbGU9J3N0YW4yL1JTdGFuQm9vay1tYXN0ZXIvY2hhcDA0L2lucHV0L2RhdGEtc2FsYXJ5LnR4dCcpCmQKYGBgCgoKYGBge3N0YW4gb3V0cHV0LnZhcj1tb2RlbDQ1fQpkYXRhIHsKICBpbnQgTjsKICByZWFsIFhbTl07CiAgcmVhbCBZW05dOwp9CgpwYXJhbWV0ZXJzIHsKICByZWFsIGE7CiAgcmVhbCBiOwogIHJlYWw8bG93ZXI9MD4gc2lnbWE7Cn0KCm1vZGVsIHsKICBmb3IgKG4gaW4gMTpOKSB7CiAgICAvL1lbbl3jgYzlubPlnYdhICsgYipYW25d44O75qiZ5rqW5YGP5beuc2lnbWHjga7mraPopo/liIbluIPjgYvjgonnlJ/miJDjgZXjgozjgZ/jgZPjgajjgpLnpLrjgZkKICAgIFlbbl0gfiBub3JtYWwoYSArIGIqWFtuXSwgc2lnbWEpOwogIH0KfQoKYGBgCgpgYGB7cn0KbGlicmFyeShyc3RhbikKZGF0YSA8LSBsaXN0KE49bnJvdyhkKSwgWD1kJFgsIFk9ZCRZKQpmaXQgPC0gc2FtcGxpbmcobW9kZWw0NSwgZGF0YT1kYXRhLCBzZWVkPTEyMzQpCmBgYAoKYGBge3J9CmZpdApgYGAKCuW5tOm9ouOBjOS4gOOBpOWil+OBiOOCi+OBlOOBqOOBq+OAgeWfuuacrOW5tOWPjuOBjOW5s+Wdh+OBpzIxLjk35LiH5YaG5LiK44GM44KL44Go6Kej6YeI44Gn44GN44KL44CCCgpgYGB7cn0KbGlicmFyeShnZ21jbWMpCgpnZ21jbWMoZ2dzKGZpdCwgaW5jX3dhcm11cD1UUlVFLCBzdGFuX2luY2x1ZGVfYXV4aWxpYXI9VFJVRSksIGZpbGU9J21hdHN1dXJhc3Rhbi9tb2RlbDQtNV9maXQtdHJhY2VwbG90LnBkZicsIHBsb3Q9J3RyYWNlcGxvdCcpCmBgYAoKYGBge3J9CmdnbWNtYyhnZ3MoZml0KSwgZmlsZT0nbWF0c3V1cmFzdGFuL21vZGVsNC01X2ZpdC1nZ21jbWMucGRmJykKYGBgCgo=</div>
 
 
 

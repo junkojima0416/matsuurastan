@@ -1,3 +1,4 @@
 
 lp__もパラメータ同様収束する必要がある
 MCMCサンプルの長さは、chains*(iter - warmup)/thin
+n_effは少なくとも100ぐらいあることが望ましい
