@@ -2,3 +2,10 @@
 lp__もパラメータ同様収束する必要がある
 MCMCサンプルの長さは、chains*(iter - warmup)/thin
 n_effは少なくとも100ぐらいあることが望ましい
+ggmcmcのHP(http://xavier-fim.net/packages/ggmcmc/)
+real<lower=a, upper=b> xのように制限があるパラメータでは、[-2,2]の一様分布から生成した乱数x*からx=a+(b-a)*(1/(1+exp(-x*)))と変数変換したxが初期値となる
+
+iterは1000〜5000くらい。1桁正確にするには100倍のMCMCサンプルが必要。
+warmupは100〜500あれば十分なことが多い。
+thinは、traceplotで一時的に急激に値が大きくなる場合、5などにすると収束が良くなることがある。
+
