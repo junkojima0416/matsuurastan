@@ -1,0 +1,118 @@
+---
+title: "4章単回帰練習問題"
+output: html_notebook
+---
+
+```{r}
+set.seed(123)
+N1 <- 30
+N2 <- 20
+Y1 <- rnorm(n=N1, mean=0, sd=5)
+Y2 <- rnorm(n=N2, mean=1, sd=4)
+```
+
+```{r}
+hist(Y1)
+```
+
+```{r}
+hist(Y2)
+```
+
+```{r}
+library(ggplot2)
+d1 <- data.frame(group=1, Y=Y1)
+d2 <- data.frame(group=2, Y=Y2)
+d <- rbind(d1, d2)
+d$group <- as.factor(d$group)
+
+p <- ggplot(data=d, aes(x=group, y=Y, group=group, col=group))
+p <- p + geom_boxplot(outlier.size=0)
+#p <- p + geom_point()
+p <- p + geom_point(position=position_jitter(w=0.4, h=0), size=2)
+p
+```
+
+```{stan output.var=ex2}
+data {
+  int N1;
+  int N2;
+  real Y1[N1];
+  real Y2[N2];
+}
+
+parameters {
+  real mu1;
+  real mu2;
+  real<lower=0> sigma;
+}
+
+model {
+  for(n in 1:N1)
+    Y1[n] ~ normal(mu1, sigma);
+  for(n in 1:N2)
+    Y2[n] ~ normal(mu2, sigma);
+}
+
+```
+
+```{r}
+library(rstan)
+data <- list(N1=N1, N2=N2, Y1=Y1, Y2=Y2)
+fit <- sampling(ex2, data=data, seed=123)
+```
+
+```{r}
+fit
+```
+
+```{r}
+ms <- rstan::extract(fit)
+prob <- mean(ms$mu1 < ms$mu2)
+prob
+N_mcmc <- length(ms$mu1)
+prob2 <- sum(ms$mu1 < ms$mu2) / N_mcmc
+prob2
+```
+
+```{stan output.var=ex5}
+data {
+  int N1;
+  int N2;
+  real Y1[N1];
+  real Y2[N2];
+}
+
+
+parameters {
+  real mu1;
+  real mu2;
+  real<lower=0> sigma1;
+  real<lower=0> sigma2;
+}
+
+model {
+  for (n in 1: N1)
+    Y1[n] ~ normal(mu1, sigma1);
+  for(n in 1:N2)
+    Y2[n] ~ normal(mu2, sigma2);
+}
+
+```
+
+```{r}
+data=list(N1=N1, N2=N2, Y1=Y1, Y2=Y2)
+fit <- sampling(ex5, data=data, seed=1234)
+```
+
+```{r}
+fit
+```
+
+```{r}
+ms <- rstan::extract(fit)
+N_mcmc <- length(ms$mu1)
+prob <- sum(ms$mu1 < ms$mu2) / N_mcmc
+prob
+```
+
